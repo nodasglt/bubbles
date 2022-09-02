@@ -1,4 +1,12 @@
 <div class="leaderboard">
+  Gameplay: <br>
+  - Bigger bubbles consume smaller bubbles <br>
+  - Movement costs 1% of your mass <br>
+  Controls: <br>
+  - Arrow keys move <br>
+  - Space for rage quit <br> (distance based area damage, up to x10 your mass)
+</div>
+<div class="leaderboard">
   <ng-container *ngIf="state">
     <div
       *ngFor="let playa of state.players | sort: 'score':true"
