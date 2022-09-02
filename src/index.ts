@@ -33,9 +33,9 @@ io.on('connection', async (socket) => {
     (reason) => socket.emit('gameOver', reason)
   );
   socket.conn.on('close', () => game.drop(socket.id));
-  socket.on('command', (command: Command) =>
+  socket.on('command', (command: Command) => {
     game.onPlayerCommand(socket.id, command)
-  );
+  });
   // initial push of state
   socket.emit('stateChanged', game.gameState);
 });

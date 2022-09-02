@@ -113,7 +113,7 @@ export class FieldComponent implements AfterViewInit, OnChanges {
     this.drawCircle(
       x,
       y,
-      this.playerSize,
+      (this.player?.score ?? 0),
       this.playerColor,
       'black',
       this.player?.name ?? DEFAULT_PLAYER_NAME
@@ -160,7 +160,7 @@ export class FieldComponent implements AfterViewInit, OnChanges {
       this.drawCircle(
         x,
         y,
-        this.playerSize,
+        p.player.score,
         DEFAULT_OTHER_PLAYER_COLOR,
         'black',
         p.player.name
@@ -211,7 +211,7 @@ export class FieldComponent implements AfterViewInit, OnChanges {
     if (label) {
       this.ctx.textAlign = 'center';
       const nameHeight = Number(/\d+/.exec(this.ctx.font));
-      this.ctx.fillText(label, x, y - nameHeight - 0.2 * this.playerSize);
+      this.ctx.fillText(label, x, y - nameHeight - 0.2 * size);
     }
   }
 }

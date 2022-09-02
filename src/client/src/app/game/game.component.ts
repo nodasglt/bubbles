@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { map, filter, throttleTime, takeWhile } from 'rxjs/operators';
+import { map, filter, throttleTime, takeWhile, tap } from 'rxjs/operators';
 import {
   Connection,
   ConnectionService,
@@ -103,7 +103,7 @@ export class GameComponent implements AfterViewInit {
         filter(() => this.gameActive),
         // Get the key from the event
         map((e) => e.key),
-        // ignore unmapped keys
+        // ignore unmapped keys,
         filter((k) => Object.keys(this.keyBindings).includes(k)),
         // map the key to the command
         map((k) => this.keyBindings[k]),

@@ -14,6 +14,7 @@ export interface IPlayer {
   score: number;
   x: number;
   y: number;
+  quit?: boolean;
 }
 
 export interface ICoin {
